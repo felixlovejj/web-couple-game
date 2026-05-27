@@ -1,0 +1,29 @@
+{
+  "users": {
+    "123": {
+      "password": "de86a4c2e65968684ca3dac057f6eb0dcea30a169b5c3ce77b9a33d584720e3f",
+      "token": "bd8b6ef47265cb8e72dba87281c8f8d006dfb2afe9552030b3e06d44c49eed10",
+      "balance": 125,
+      "scratchCards": 4,
+      "lastSignInDate": "Wed May 27 2026",
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {}
+    },
+    "admin": {
+      "password": "4b6d4cfb071edabf46ddc52f9bac38725cdca2cbcefe52db1dfdff29962045ea",
+      "token": "5bee024278122cf41ceaa021c8a0185e1c14f6034dd9478614034ec1acecd251",
+      "balance": 25,
+      "scratchCards": 0,
+      "lastSignInDate": "Wed May 27 2026",
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {
+        "2026-05-25": {
+          "number": "狗屎",
+          "amount": "狗屎",
+          "type": "cash",
+          "value": 0
+        }
+      }
+    }
+  }
+}

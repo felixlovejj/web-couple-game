@@ -1,0 +1,14 @@
+{
+  "balance": 15,
+  "scratchCards": 0,
+  "lastSignInDate": "Wed May 27 2026",
+  "guaranteedPrizes": {
+    "2026-05-25": {
+      "number": "狗屎",
+      "amount": "狗屎",
+      "type": "cash",
+      "value": 0
+    }
+  },
+  "nextGuaranteedPrize": null
+}
