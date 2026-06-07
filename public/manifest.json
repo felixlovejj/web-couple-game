@@ -1,0 +1,39 @@
+{
+  "name": "刮刮乐 - 暗棋对战",
+  "short_name": "刮刮乐",
+  "description": "暗棋对战游戏 - 刮刮乐 Scratch Off",
+  "start_url": "/scratch-off/",
+  "scope": "/scratch-off/",
+  "display": "standalone",
+  "display_override": ["fullscreen", "standalone", "minimal-ui"],
+  "orientation": "portrait",
+  "theme_color": "#c0392b",
+  "background_color": "#fff5f5",
+  "categories": ["games", "entertainment"],
+  "icons": [
+    {
+      "src": "/scratch-off/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/scratch-off/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/scratch-off/icon-192-maskable.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/scratch-off/icon-512-maskable.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}

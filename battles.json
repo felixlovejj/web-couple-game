@@ -1,0 +1,222 @@
+{
+  "battles": {
+    "mpo7jf9xc5y6": {
+      "id": "mpo7jf9xc5y6",
+      "player1": "a",
+      "player2": "123",
+      "stake": 30,
+      "status": "finished",
+      "round": 6,
+      "winner": "123",
+      "winnerReason": "funds_depleted",
+      "cells": [
+        {
+          "type": "mystery",
+          "revealed": true,
+          "wonBy": "a",
+          "effectsApplied": true
+        },
+        {
+          "type": "powerup",
+          "revealed": true,
+          "wonBy": null,
+          "effectsApplied": false
+        },
+        {
+          "type": "mystery",
+          "revealed": false,
+          "wonBy": null,
+          "effectsApplied": false
+        },
+        {
+          "type": "trap",
+          "trapEffect": "blind",
+          "revealed": false,
+          "wonBy": null,
+          "effectsApplied": false
+        },
+        {
+          "type": "trap",
+          "trapEffect": "discard",
+          "revealed": true,
+          "wonBy": "123",
+          "effectsApplied": false
+        },
+        {
+          "type": "jackpot",
+          "value": 50,
+          "revealed": false,
+          "wonBy": null,
+          "effectsApplied": false
+        },
+        {
+          "type": "gold",
+          "value": 18,
+          "revealed": true,
+          "wonBy": null,
+          "effectsApplied": false
+        },
+        {
+          "type": "powerup",
+          "revealed": true,
+          "wonBy": null,
+          "effectsApplied": false
+        },
+        {
+          "type": "trap",
+          "trapEffect": "funds",
+          "revealed": false,
+          "wonBy": null,
+          "effectsApplied": false
+        },
+        {
+          "type": "gold",
+          "value": 25,
+          "revealed": true,
+          "wonBy": "a",
+          "effectsApplied": true
+        },
+        {
+          "type": "mystery",
+          "revealed": true,
+          "wonBy": null,
+          "effectsApplied": false
+        },
+        {
+          "type": "gold",
+          "value": 10,
+          "revealed": true,
+          "wonBy": "a",
+          "effectsApplied": true
+        },
+        {
+          "type": "gold",
+          "value": 8,
+          "revealed": false,
+          "wonBy": null,
+          "effectsApplied": false
+        },
+        {
+          "type": "gold",
+          "value": 20,
+          "revealed": false,
+          "wonBy": null,
+          "effectsApplied": false
+        },
+        {
+          "type": "mystery",
+          "revealed": true,
+          "wonBy": null,
+          "effectsApplied": false
+        },
+        {
+          "type": "powerup",
+          "revealed": false,
+          "wonBy": null,
+          "effectsApplied": false
+        },
+        {
+          "type": "gold",
+          "value": 8,
+          "revealed": false,
+          "wonBy": null,
+          "effectsApplied": false
+        },
+        {
+          "type": "mystery",
+          "revealed": true,
+          "wonBy": null,
+          "effectsApplied": false
+        }
+      ],
+      "revealedIndices": [
+        7,
+        4
+      ],
+      "players": {
+        "123": {
+          "funds": 50,
+          "gold": 0,
+          "totalAssets": 50,
+          "hand": [
+            "shield",
+            "fraud"
+          ],
+          "extraDraw": 0,
+          "blindNextRound": false,
+          "exposeNextRound": false
+        },
+        "a": {
+          "funds": 0,
+          "gold": 35,
+          "totalAssets": 35,
+          "hand": [
+            "fraud",
+            "fraud"
+          ],
+          "extraDraw": 0,
+          "blindNextRound": false,
+          "exposeNextRound": false
+        }
+      },
+      "roundActions": {
+        "123": {
+          "cellIndex": 4,
+          "amount": 5,
+          "card": "intercept"
+        },
+        "a": {
+          "cellIndex": 4,
+          "amount": 10,
+          "card": null
+        }
+      },
+      "settlementLog": [
+        {
+          "phase": "auction",
+          "description": "a¥10>(123¥5)拍得💀陷阱"
+        },
+        {
+          "phase": "intercept",
+          "description": "123截胡a的💀陷阱"
+        },
+        {
+          "phase": "trap",
+          "description": "123获得陷阱(discard)，需要处理",
+          "cellIndex": 4,
+          "effect": "discard"
+        }
+      ],
+      "pendingTrapActions": [
+        {
+          "id": 0,
+          "cellIndex": 4,
+          "winner": "123",
+          "effect": "discard",
+          "resolved": true,
+          "negatedByShield": false
+        }
+      ],
+      "phaseChangedAt": 1779895336266,
+      "createdAt": 1779895020309
+    },
+    "mpottcqmgblk": {
+      "id": "mpottcqmgblk",
+      "player1": "123",
+      "player2": null,
+      "stake": 30,
+      "status": "waiting",
+      "round": 0,
+      "winner": null,
+      "winnerReason": null,
+      "cells": [],
+      "revealedIndices": [],
+      "players": {},
+      "roundActions": {},
+      "settlementLog": [],
+      "pendingTrapActions": [],
+      "phaseChangedAt": 1779932435137,
+      "createdAt": 1779932435137
+    }
+  }
+}

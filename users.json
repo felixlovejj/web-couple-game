@@ -2,17 +2,84 @@
   "users": {
     "123": {
       "password": "de86a4c2e65968684ca3dac057f6eb0dcea30a169b5c3ce77b9a33d584720e3f",
-      "token": "bd8b6ef47265cb8e72dba87281c8f8d006dfb2afe9552030b3e06d44c49eed10",
-      "balance": 125,
-      "scratchCards": 4,
+      "token": "34cf794bef7329d430d17eae77ff9c4052ac0b7217eda9d5c8b9c24c96fd83b2",
+      "balance": 39995,
+      "scratchCards": 1,
+      "lastSignInDate": "Sun Jun 07 2026",
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {},
+      "battleStats": {
+        "wins": 38,
+        "losses": 24,
+        "totalGoldEarned": 2280
+      },
+      "inventory": {
+        "freezeShield": 3,
+        "reflectArmor": 4,
+        "doubleBet": 2
+      }
+    },
+    "234": {
+      "password": "85c7b012a6306e4bfdb771e55dd8427455240e03efea154dbbc4a0aec2c381c4",
+      "token": "f30529f92e22a497d83bef21dfe4a83aabdf7ff446b26392e09aa03663ec53d6",
+      "balance": 240,
+      "scratchCards": 0,
+      "lastSignInDate": null,
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {},
+      "inventory": {
+        "freezeShield": 3,
+        "reflectArmor": 2,
+        "doubleBet": 1
+      },
+      "battleStats": {
+        "wins": 3,
+        "losses": 3,
+        "totalGoldEarned": 180
+      }
+    },
+    "123456": {
+      "password": "28c7cf9d2ebdcd473e92f40503f61a243276f491e66c124fccaf31554eb81e90",
+      "token": "7051e58c77767d6257b1f8afad06914ccfaefe5dd044e32def70796a0be81f16",
+      "balance": 210,
+      "scratchCards": 0,
       "lastSignInDate": "Wed May 27 2026",
       "nextGuaranteedPrize": null,
-      "guaranteedPrizes": {}
+      "guaranteedPrizes": {},
+      "inventory": {
+        "freezeShield": 0,
+        "reflectArmor": 0,
+        "doubleBet": 0
+      },
+      "battleStats": {
+        "wins": 3,
+        "losses": 1,
+        "totalGoldEarned": 180
+      }
+    },
+    "1715776072": {
+      "password": "fcdb6a3e89c0e9af37d84d93a74981eac7e2d7017f4228dc79a5482e9f053b14",
+      "token": "ab57f1b930ea7298dc05ffeea16fd7da5cef25dbff0fd7b6ad4deaba2dda28d0",
+      "balance": 280,
+      "scratchCards": 0,
+      "lastSignInDate": "Mon Jun 01 2026",
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {},
+      "inventory": {
+        "freezeShield": 2,
+        "reflectArmor": 0,
+        "doubleBet": 0
+      },
+      "battleStats": {
+        "wins": 1,
+        "losses": 4,
+        "totalGoldEarned": 60
+      }
     },
     "admin": {
       "password": "4b6d4cfb071edabf46ddc52f9bac38725cdca2cbcefe52db1dfdff29962045ea",
-      "token": "5bee024278122cf41ceaa021c8a0185e1c14f6034dd9478614034ec1acecd251",
-      "balance": 25,
+      "token": "0d7a75517610b0221177be94a478efd2e02499086bd0b8260ad8cf2f309ccfd7",
+      "balance": 200,
       "scratchCards": 0,
       "lastSignInDate": "Wed May 27 2026",
       "nextGuaranteedPrize": null,
@@ -23,6 +90,643 @@
           "type": "cash",
           "value": 0
         }
+      },
+      "inventory": {
+        "freezeShield": 1,
+        "reflectArmor": 0,
+        "doubleBet": 0
+      },
+      "battleStats": {
+        "wins": 1,
+        "losses": 0,
+        "totalGoldEarned": 60
+      }
+    },
+    "test_battle1": {
+      "password": "001351ad66b671df4274340e6284744cab164b629acfb0e136562fee5a9b3edc",
+      "token": "3bc639a1c869b41728f6640de5c3d11ca586d3aafad26f6018a78d69c1efc773",
+      "balance": 10,
+      "scratchCards": 0,
+      "lastSignInDate": null,
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {},
+      "inventory": {
+        "freezeShield": 0,
+        "reflectArmor": 0,
+        "doubleBet": 0
+      },
+      "battleStats": {
+        "wins": 0,
+        "losses": 0,
+        "totalGoldEarned": 0
+      }
+    },
+    "test_battle2": {
+      "password": "001351ad66b671df4274340e6284744cab164b629acfb0e136562fee5a9b3edc",
+      "token": "6d56fb6c14dc2361775f2717b9c7996b8b272da25390aeefdad3b0d00edebb74",
+      "balance": 10,
+      "scratchCards": 0,
+      "lastSignInDate": null,
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {},
+      "inventory": {
+        "freezeShield": 0,
+        "reflectArmor": 0,
+        "doubleBet": 0
+      },
+      "battleStats": {
+        "wins": 0,
+        "losses": 0,
+        "totalGoldEarned": 0
+      }
+    },
+    "A": {
+      "password": "d72fba438128fa303bb539b38e6db9ad3a615208972308ca4aa2d7c0d43793fc",
+      "token": "5e780b7592a41cf510cbfdb2dab516e849b7be3f64d7f8c5a47369059818e366",
+      "balance": 1090,
+      "scratchCards": 1,
+      "lastSignInDate": "Wed May 27 2026",
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {},
+      "inventory": {
+        "freezeShield": 0,
+        "reflectArmor": 0,
+        "doubleBet": 0
+      },
+      "battleStats": {
+        "wins": 3,
+        "losses": 2,
+        "totalGoldEarned": 180
+      }
+    },
+    "a": {
+      "password": "d72fba438128fa303bb539b38e6db9ad3a615208972308ca4aa2d7c0d43793fc",
+      "token": "ff0a56e49a470b325469412c1862463b193818d693bf385e4767a8dde9f76022",
+      "balance": 19160,
+      "scratchCards": 1,
+      "lastSignInDate": "Sun Jun 07 2026",
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {},
+      "inventory": {
+        "freezeShield": 0,
+        "reflectArmor": 0,
+        "doubleBet": 0
+      },
+      "battleStats": {
+        "wins": 21,
+        "losses": 43,
+        "totalGoldEarned": 1260
+      }
+    },
+    "jiajiazuikeai": {
+      "password": "52bdc2327516b11c0e569bc6569476604e62feaec3b72205159590b0b527c5ab",
+      "token": "a84915511a24ecef6c81a4861822752501d934f4189a4de62c9b375e4551573f",
+      "balance": 85,
+      "scratchCards": 1,
+      "lastSignInDate": "Sat Jun 06 2026",
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {},
+      "inventory": {
+        "freezeShield": 0,
+        "reflectArmor": 0,
+        "doubleBet": 0
+      },
+      "battleStats": {
+        "wins": 17,
+        "losses": 9,
+        "totalGoldEarned": 1020
+      }
+    },
+    "testuser": {
+      "password": "001351ad66b671df4274340e6284744cab164b629acfb0e136562fee5a9b3edc",
+      "token": "05548be9ad9330ee1177d9434ec7f3784aa2b8df89a79e00e973e3913abaa97a",
+      "balance": 40,
+      "scratchCards": 0,
+      "lastSignInDate": null,
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {},
+      "inventory": {
+        "freezeShield": 0,
+        "reflectArmor": 0,
+        "doubleBet": 0
+      },
+      "battleStats": {
+        "wins": 0,
+        "losses": 1,
+        "totalGoldEarned": 0
+      }
+    },
+    "test1": {
+      "password": "449ebf06b7c39723ee3b6a03f996577a90c021e3ad1db4db699113f73fb78714",
+      "token": "112e01a0b5e43d2f7fb17f8f955fc6749992ac5e31ee43e476440a6ea2164f1a",
+      "balance": 0,
+      "scratchCards": 0,
+      "lastSignInDate": null,
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {},
+      "inventory": {
+        "freezeShield": 0,
+        "reflectArmor": 0,
+        "doubleBet": 0
+      },
+      "battleStats": {
+        "wins": 0,
+        "losses": 0,
+        "totalGoldEarned": 0
+      }
+    },
+    "test2": {
+      "password": "da1c20049ffab6eb943f8738c5361d058643e7263ce6aeff6708ae53dfeec4a6",
+      "token": "6dacf327fa4b2d7f75ed8660019d87f08d345af16d4ae5e1253b1e49c5f8e385",
+      "balance": 0,
+      "scratchCards": 0,
+      "lastSignInDate": null,
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {},
+      "inventory": {
+        "freezeShield": 0,
+        "reflectArmor": 0,
+        "doubleBet": 0
+      },
+      "battleStats": {
+        "wins": 0,
+        "losses": 0,
+        "totalGoldEarned": 0
+      }
+    },
+    "player1": {
+      "password": "54ec9805bcdbed741758b54d5e868d37529b8ed8d136adee152498f7801566ee",
+      "token": "351b6ddf3993eec33e0b797c6609a0481e54bb8c876add2b0ec4bc0c6a6f1c95",
+      "balance": 0,
+      "scratchCards": 0,
+      "lastSignInDate": null,
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {},
+      "inventory": {
+        "freezeShield": 0,
+        "reflectArmor": 0,
+        "doubleBet": 0
+      },
+      "battleStats": {
+        "wins": 0,
+        "losses": 0,
+        "totalGoldEarned": 0
+      }
+    },
+    "p1": {
+      "password": "54ec9805bcdbed741758b54d5e868d37529b8ed8d136adee152498f7801566ee",
+      "token": "3b4339647bce63471aaff8c04a7d9ff983172b3e69c7184eba480603999855fb",
+      "balance": 0,
+      "scratchCards": 0,
+      "lastSignInDate": null,
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {},
+      "inventory": {
+        "freezeShield": 0,
+        "reflectArmor": 0,
+        "doubleBet": 0
+      },
+      "battleStats": {
+        "wins": 0,
+        "losses": 0,
+        "totalGoldEarned": 0
+      }
+    },
+    "p3": {
+      "password": "54ec9805bcdbed741758b54d5e868d37529b8ed8d136adee152498f7801566ee",
+      "token": "026bd0b38d812d5ad047883bbfea7f43b801dae395c36d0a2126714a2d59c271",
+      "balance": 0,
+      "scratchCards": 0,
+      "lastSignInDate": null,
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {},
+      "inventory": {
+        "freezeShield": 0,
+        "reflectArmor": 0,
+        "doubleBet": 0
+      },
+      "battleStats": {
+        "wins": 0,
+        "losses": 0,
+        "totalGoldEarned": 0
+      }
+    },
+    "p4": {
+      "password": "54ec9805bcdbed741758b54d5e868d37529b8ed8d136adee152498f7801566ee",
+      "token": "b67b9ef2099a9839b98bdc523909407b927cdb382b99b41cc947686a5bcf73e4",
+      "balance": 70,
+      "scratchCards": 0,
+      "lastSignInDate": null,
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {},
+      "inventory": {
+        "freezeShield": 0,
+        "reflectArmor": 0,
+        "doubleBet": 0
+      },
+      "battleStats": {
+        "wins": 0,
+        "losses": 0,
+        "totalGoldEarned": 0
+      }
+    },
+    "p5": {
+      "password": "54ec9805bcdbed741758b54d5e868d37529b8ed8d136adee152498f7801566ee",
+      "token": "e34da45a6a2a20ed7b3a7a44a8d74b33f669fa3b8817d982d067b56402461069",
+      "balance": 100,
+      "scratchCards": 0,
+      "lastSignInDate": null,
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {},
+      "inventory": {
+        "freezeShield": 0,
+        "reflectArmor": 0,
+        "doubleBet": 0
+      },
+      "battleStats": {
+        "wins": 0,
+        "losses": 0,
+        "totalGoldEarned": 0
+      }
+    },
+    "test_a": {
+      "password": "54ec9805bcdbed741758b54d5e868d37529b8ed8d136adee152498f7801566ee",
+      "token": "799553ecca86979b0c94f20b140b431cd6edcbad0cbbdf5342e47e4e26aebdea",
+      "balance": 70,
+      "scratchCards": 0,
+      "lastSignInDate": null,
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {},
+      "inventory": {
+        "freezeShield": 0,
+        "reflectArmor": 0,
+        "doubleBet": 0
+      },
+      "battleStats": {
+        "wins": 0,
+        "losses": 0,
+        "totalGoldEarned": 0
+      }
+    },
+    "test_b": {
+      "password": "54ec9805bcdbed741758b54d5e868d37529b8ed8d136adee152498f7801566ee",
+      "token": "b48d8a4d4d26a4ba347d4f84766eabd4d038f76da39bb42c3d4713e3ad8397b9",
+      "balance": 40,
+      "scratchCards": 0,
+      "lastSignInDate": null,
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {},
+      "inventory": {
+        "freezeShield": 0,
+        "reflectArmor": 0,
+        "doubleBet": 0
+      },
+      "battleStats": {
+        "wins": 0,
+        "losses": 0,
+        "totalGoldEarned": 0
+      }
+    },
+    "test_d": {
+      "password": "54ec9805bcdbed741758b54d5e868d37529b8ed8d136adee152498f7801566ee",
+      "token": "61cab7375a510a5f3354406e262c10d784cd9e6616aa00946a6fe20bdde33334",
+      "balance": 0,
+      "scratchCards": 0,
+      "lastSignInDate": null,
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {},
+      "inventory": {
+        "freezeShield": 0,
+        "reflectArmor": 0,
+        "doubleBet": 0
+      },
+      "battleStats": {
+        "wins": 0,
+        "losses": 0,
+        "totalGoldEarned": 0
+      }
+    },
+    "dt1": {
+      "password": "54ec9805bcdbed741758b54d5e868d37529b8ed8d136adee152498f7801566ee",
+      "token": "1175889832775e29418faa3a70cc24f5ebcf922347573839a2111094f904cdd5",
+      "balance": 70,
+      "scratchCards": 0,
+      "lastSignInDate": null,
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {},
+      "inventory": {
+        "freezeShield": 0,
+        "reflectArmor": 0,
+        "doubleBet": 0
+      },
+      "battleStats": {
+        "wins": 0,
+        "losses": 0,
+        "totalGoldEarned": 0
+      }
+    },
+    "dt2": {
+      "password": "54ec9805bcdbed741758b54d5e868d37529b8ed8d136adee152498f7801566ee",
+      "token": "0165c18ee11d3b6d34b2e430c862ad5d47a514cd865b81410d9bde48257386ac",
+      "balance": 70,
+      "scratchCards": 0,
+      "lastSignInDate": null,
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {},
+      "inventory": {
+        "freezeShield": 0,
+        "reflectArmor": 0,
+        "doubleBet": 0
+      },
+      "battleStats": {
+        "wins": 0,
+        "losses": 0,
+        "totalGoldEarned": 0
+      }
+    },
+    "rd1": {
+      "password": "54ec9805bcdbed741758b54d5e868d37529b8ed8d136adee152498f7801566ee",
+      "token": "3f893ca7fc7d7758e32b30b2ad15964c4f6a12a3e838c69c0066c7a69db97e6a",
+      "balance": 70,
+      "scratchCards": 0,
+      "lastSignInDate": null,
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {},
+      "inventory": {
+        "freezeShield": 0,
+        "reflectArmor": 0,
+        "doubleBet": 0
+      },
+      "battleStats": {
+        "wins": 0,
+        "losses": 0,
+        "totalGoldEarned": 0
+      }
+    },
+    "rd2": {
+      "password": "54ec9805bcdbed741758b54d5e868d37529b8ed8d136adee152498f7801566ee",
+      "token": "0d4d7728fd8385043ee153d9e3b2424d4e1a499ddafa4fa0a93ac15856737bc7",
+      "balance": 70,
+      "scratchCards": 0,
+      "lastSignInDate": null,
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {},
+      "inventory": {
+        "freezeShield": 0,
+        "reflectArmor": 0,
+        "doubleBet": 0
+      },
+      "battleStats": {
+        "wins": 0,
+        "losses": 0,
+        "totalGoldEarned": 0
+      }
+    },
+    "rd3": {
+      "password": "54ec9805bcdbed741758b54d5e868d37529b8ed8d136adee152498f7801566ee",
+      "token": "3b6338ec0892920d1ffa90b133593a24da469a50b634fb19c0434266561d3945",
+      "balance": 70,
+      "scratchCards": 0,
+      "lastSignInDate": null,
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {},
+      "inventory": {
+        "freezeShield": 0,
+        "reflectArmor": 0,
+        "doubleBet": 0
+      },
+      "battleStats": {
+        "wins": 0,
+        "losses": 0,
+        "totalGoldEarned": 0
+      }
+    },
+    "rd4": {
+      "password": "54ec9805bcdbed741758b54d5e868d37529b8ed8d136adee152498f7801566ee",
+      "token": "023e6aee8d3eab26f1fc424159438cc552d7efa68bf7a0b869a363a4bb95b36a",
+      "balance": 70,
+      "scratchCards": 0,
+      "lastSignInDate": null,
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {},
+      "inventory": {
+        "freezeShield": 0,
+        "reflectArmor": 0,
+        "doubleBet": 0
+      },
+      "battleStats": {
+        "wins": 0,
+        "losses": 0,
+        "totalGoldEarned": 0
+      }
+    },
+    "fix1": {
+      "password": "54ec9805bcdbed741758b54d5e868d37529b8ed8d136adee152498f7801566ee",
+      "token": "9b14e730817007b884269c9b3f5723cfb764a4117537398bf2c1dd41db433360",
+      "balance": 70,
+      "scratchCards": 0,
+      "lastSignInDate": null,
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {},
+      "inventory": {
+        "freezeShield": 0,
+        "reflectArmor": 0,
+        "doubleBet": 0
+      },
+      "battleStats": {
+        "wins": 0,
+        "losses": 0,
+        "totalGoldEarned": 0
+      }
+    },
+    "fix2": {
+      "password": "54ec9805bcdbed741758b54d5e868d37529b8ed8d136adee152498f7801566ee",
+      "token": "0c2ab5305fc050f9f902970f9e4d8630bb24c07c5c1fd60fd075f5b6f2f20bae",
+      "balance": 70,
+      "scratchCards": 0,
+      "lastSignInDate": null,
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {},
+      "inventory": {
+        "freezeShield": 0,
+        "reflectArmor": 0,
+        "doubleBet": 0
+      },
+      "battleStats": {
+        "wins": 0,
+        "losses": 0,
+        "totalGoldEarned": 0
+      }
+    },
+    "mv1": {
+      "password": "54ec9805bcdbed741758b54d5e868d37529b8ed8d136adee152498f7801566ee",
+      "token": "51687b7e21e3f3b2cf61cf607a8d4894586021b903c395aed93137061dde0193",
+      "balance": 70,
+      "scratchCards": 0,
+      "lastSignInDate": null,
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {},
+      "inventory": {
+        "freezeShield": 0,
+        "reflectArmor": 0,
+        "doubleBet": 0
+      },
+      "battleStats": {
+        "wins": 0,
+        "losses": 0,
+        "totalGoldEarned": 0
+      }
+    },
+    "mv2": {
+      "password": "54ec9805bcdbed741758b54d5e868d37529b8ed8d136adee152498f7801566ee",
+      "token": "f956c33a9ddc543b1f6a2541f9d13f3ceabd5967343dc9ea6411d70f10c0f4d8",
+      "balance": 70,
+      "scratchCards": 0,
+      "lastSignInDate": null,
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {},
+      "inventory": {
+        "freezeShield": 0,
+        "reflectArmor": 0,
+        "doubleBet": 0
+      },
+      "battleStats": {
+        "wins": 0,
+        "losses": 0,
+        "totalGoldEarned": 0
+      }
+    },
+    "t1": {
+      "password": "54ec9805bcdbed741758b54d5e868d37529b8ed8d136adee152498f7801566ee",
+      "token": "d5309429629a59123bc66620033e2c7a392ca4759623c5c154a441256ea44f0c",
+      "balance": 70,
+      "scratchCards": 0,
+      "lastSignInDate": null,
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {},
+      "inventory": {
+        "freezeShield": 0,
+        "reflectArmor": 0,
+        "doubleBet": 0
+      },
+      "battleStats": {
+        "wins": 1,
+        "losses": 1,
+        "totalGoldEarned": 60
+      }
+    },
+    "t2": {
+      "password": "54ec9805bcdbed741758b54d5e868d37529b8ed8d136adee152498f7801566ee",
+      "token": "423f1c02632caeecfee77d313ee90119711036d8f2cae05bd383ccd928663d22",
+      "balance": 70,
+      "scratchCards": 0,
+      "lastSignInDate": null,
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {},
+      "inventory": {
+        "freezeShield": 0,
+        "reflectArmor": 0,
+        "doubleBet": 0
+      },
+      "battleStats": {
+        "wins": 1,
+        "losses": 1,
+        "totalGoldEarned": 60
+      }
+    },
+    "testc1_1780121918104": {
+      "password": "001351ad66b671df4274340e6284744cab164b629acfb0e136562fee5a9b3edc",
+      "token": "c5418e808b0b972ae847d0e4a169e67a63a580088eb00817bd9b9732d4a931c1",
+      "balance": 90,
+      "scratchCards": 0,
+      "lastSignInDate": null,
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {},
+      "inventory": {
+        "freezeShield": 0,
+        "reflectArmor": 0,
+        "doubleBet": 0
+      },
+      "battleStats": {
+        "wins": 0,
+        "losses": 0,
+        "totalGoldEarned": 0
+      }
+    },
+    "testc2_1780121918179": {
+      "password": "001351ad66b671df4274340e6284744cab164b629acfb0e136562fee5a9b3edc",
+      "token": "ffd9509d9abf4a649ab8ccbd68cdb5747923cb21ba6fdc85eaee5f11444089c4",
+      "balance": 0,
+      "scratchCards": 0,
+      "lastSignInDate": null,
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {},
+      "inventory": {
+        "freezeShield": 0,
+        "reflectArmor": 0,
+        "doubleBet": 0
+      },
+      "battleStats": {
+        "wins": 0,
+        "losses": 0,
+        "totalGoldEarned": 0
+      }
+    },
+    "kk": {
+      "password": "c9b0a7ca1dbdc44b7e69f5b9ce3251ec46f88442f79681bf023698b4121d477d",
+      "token": "875494fffc4a0dfc4822762ae8a97e8e71bde463519615084b7493a1ea0be265",
+      "balance": 20090,
+      "scratchCards": 20000,
+      "lastSignInDate": null,
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {},
+      "inventory": {
+        "freezeShield": 0,
+        "reflectArmor": 0,
+        "doubleBet": 0
+      },
+      "battleStats": {
+        "wins": 4,
+        "losses": 4,
+        "totalGoldEarned": 240
+      }
+    },
+    "zz": {
+      "password": "d0828e3025b193d36bf1106c25184fec191a2a88acf4ffad0db6fdc618133ecf",
+      "token": null,
+      "balance": 600,
+      "scratchCards": 0,
+      "lastSignInDate": null,
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {},
+      "inventory": {
+        "freezeShield": 0,
+        "reflectArmor": 0,
+        "doubleBet": 0
+      },
+      "battleStats": {
+        "wins": 0,
+        "losses": 0,
+        "totalGoldEarned": 0
+      }
+    },
+    "U87": {
+      "password": "74cba048cf3f9c1374e77be4b6ed58bc2a6eb57aa57288d53f246e86870d6592",
+      "token": "d9bd15ccb8f74212d6eadcfdadc4a34b1ea311a34b599143c5f6ba252e36da84",
+      "balance": 10,
+      "scratchCards": 0,
+      "lastSignInDate": "Wed Jun 03 2026",
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {},
+      "inventory": {
+        "freezeShield": 0,
+        "reflectArmor": 0,
+        "doubleBet": 0
+      },
+      "battleStats": {
+        "wins": 0,
+        "losses": 0,
+        "totalGoldEarned": 0
       }
     }
   }
