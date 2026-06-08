@@ -10,14 +10,14 @@ const PIECE_NAME = {
   horse: '马', monk: '行者', rogue: '侠客', rat: '老鼠', berserker: '狂战', sage: '国师', ironguard: '铁卫',
 }
 
-export default function CombatAnimation({ combat, onComplete }) {
+export default function CombatAnimation({ combat, onComplete, gameMode }) {
   const [phase, setPhase] = useState('flipping')
-  const [defenderFading, setDefenderFading] = useState(false)
+  const [showDeathFx, setShowDeathFx] = useState(false)
 
   useEffect(() => {
     if (!combat) return
     setPhase('flipping')
-    setDefenderFading(false)
+    setShowDeathFx(false)
 
     const t1 = setTimeout(() => setPhase('reveal'), 600)
     const t2 = setTimeout(() => setPhase('result'), 1200)
@@ -25,7 +25,7 @@ export default function CombatAnimation({ combat, onComplete }) {
     const defDies = combat.result === 'mutual_death' || combat.result === 'attacker_win' ||
       combat.result === 'assassin_kill' || combat.result === 'king_killed'
     const t3 = setTimeout(() => {
-      if (defDies) setDefenderFading(true)
+      if (defDies) setShowDeathFx(true)
       setPhase('done')
       onComplete?.()
     }, 2200)
@@ -36,7 +36,9 @@ export default function CombatAnimation({ combat, onComplete }) {
   if (!combat || phase === 'done') return null
 
   const attacker = combat.attacker
+  const defender = combat.defender
   const result = combat.result
+  const isMist = gameMode === 'mist'
 
   const resultText = {
     attacker_win: '⚔️ 命中！',
@@ -57,7 +59,7 @@ export default function CombatAnimation({ combat, onComplete }) {
             <div className='dc-combat-piece-back'>🎴</div>
           </div>
         ) : (
-          <div className={`dc-combat-piece dc-flipped ${defenderFading ? 'dc-defender-fade' : ''}`}>
+          <div className='dc-combat-piece dc-flipped'>
             <div className='dc-combat-piece-front'>
               <span className='dc-combat-emoji'>{PIECE_EMOJI[attacker?.type] || '❓'}</span>
               <span className='dc-combat-name'>{PIECE_NAME[attacker?.type] || '?'}</span>
@@ -65,9 +67,17 @@ export default function CombatAnimation({ combat, onComplete }) {
           </div>
         )}
 
-        {phase === 'result' && (
+        {phase === 'result' && !isMist && (
           <div className='dc-combat-result'>
             <div className='dc-result-text'>{resultText[result] || result}</div>
+          </div>
+        )}
+
+        {phase === 'result' && isMist && showDeathFx && defender && (
+          <div className='dc-combat-result' style={{ opacity: 0.5 }}>
+            <div className='dc-result-text' style={{ fontSize: 16, color: 'rgba(255,255,255,0.4)' }}>
+              {PIECE_EMOJI[defender.type] || '❓'} 已消灭
+            </div>
           </div>
         )}
       </div>

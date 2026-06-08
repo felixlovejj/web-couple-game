@@ -57,7 +57,7 @@ export default function DeployPhase({ state, selectedDeployPiece, onSelectPiece,
 
   // Piece types for tray
   const trayPieces = isMist
-    ? Object.keys(pieceDefs)
+    ? ['king', ...Object.keys(pieceDefs)]
     : ['king', 'general', 'assassin', 'archer', 'bomb', 'pawn', 'scout']
 
   return (

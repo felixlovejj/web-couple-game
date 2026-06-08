@@ -12,8 +12,8 @@ import InfoPanel from './InfoPanel'
 import EmojiBar from './EmojiBar'
 import { SoundEffects } from './useSound'
 
-const PIECE_EMOJI = { king: '👑', general: '⚔️', assassin: '🗡️', archer: '🏹', bomb: '💣', pawn: '🐴', scout: '🔭' }
-const PIECE_NAME = { king: '王', general: '将', assassin: '刺客', archer: '弓', bomb: '炸弹', pawn: '兵', scout: '侦察兵' }
+const PIECE_EMOJI = { king: '👑', general: '⚔️', assassin: '🗡️', archer: '🏹', bomb: '💣', pawn: '🐴', scout: '🔭', horse: '🐴', monk: '🧘', rogue: '🥷', rat: '🐀', berserker: '💢', sage: '🧙', ironguard: '🛡️', unknown: '❓' }
+const PIECE_NAME = { king: '王', general: '将', assassin: '刺客', archer: '弓', bomb: '炸弹', pawn: '兵', scout: '侦发现', horse: '马', monk: '行者', rogue: '侠客', rat: '老鼠', berserker: '狂战', sage: '国师', ironguard: '铁卫', unknown: '?' }
 
 function gameReducer(state, action) {
   switch (action.type) {
@@ -471,6 +471,8 @@ export default function GamePage({ token, username, roomId, onBack }) {
             <button className='dc-end-turn-btn' onClick={() => {
               dispatch({ type: 'clear_selection' })
               setSelectedCardIndex(null)
+              setCardTarget(null)
+              setPendingRetreat(null)
               send({ type: 'end_turn' })
             }}>
               ⏭️ 结束本轮
@@ -545,6 +547,7 @@ export default function GamePage({ token, username, roomId, onBack }) {
       <CombatAnimation
         combat={state.combatAnimation}
         onComplete={clearCombat}
+        gameMode={state.gameMode}
       />
 
       {/* Event overlay */}
@@ -646,6 +649,20 @@ function computeLegalMoves(state, col, row) {
   const type = cell.type
   if (type === 'bomb' && (!state.gameMode || state.gameMode !== 'mist' || !state.kingType || state.kingType !== 'clever')) return []
   if (type === 'unknown') return []
+
+  // Bomb with clever king: can only move 1 step to empty cells (no attack)
+  if (type === 'bomb' && isMist) {
+    const moves = []
+    const directions = [[0,1],[0,-1],[1,0],[-1,0]]
+    for (const [dc, dr] of directions) {
+      const nc = col + dc, nr = row + dr
+      if (nc < 0 || nc >= 5 || nr < 0 || nr >= 7) continue
+      if (state.cracks?.some(c => c.col === nc && c.row === nr)) continue
+      const target = state.board[nc]?.[nr]
+      if (!target) moves.push({ col: nc, row: nr, isAttack: false })
+    }
+    return moves
+  }
 
   const moves = []
   const isMist = state.gameMode === 'mist'
