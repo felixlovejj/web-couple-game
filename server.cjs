@@ -551,22 +551,27 @@ class GameEngine {
         const def = MIST_PIECE_DEF[p.type]
         return sum + (def ? def.volume : 0)
       }, 0)
-      const pieceDef = MIST_PIECE_DEF[pieceType]
-      if (!pieceDef) return { ok: false, error: '无效棋子类型' }
-      const newVolume = currentVolume + pieceDef.volume
-      const extraVolume = (room.kingTypes[player] === 'clever' && pieceType === 'bomb' && placedPieces.filter(p => p.type === 'bomb').length >= 1) ? 1 : 0
-      if (newVolume > MIST_VOLUME_CAP + extraVolume) return { ok: false, error: `超出体积上限！当前${currentVolume}/${MIST_VOLUME_CAP}，${pieceDef.name}体积${pieceDef.volume}` }
+      // King is allowed even if not in MIST_PIECE_DEF
+      if (pieceType === 'king') {
+        const hasKing = playerPieces.some(p => p.type === 'king' && p.placed)
+        if (hasKing) return { ok: false, error: '王最多部署1个' }
+      } else {
+        const pieceDef = MIST_PIECE_DEF[pieceType]
+        if (!pieceDef) return { ok: false, error: '无效棋子类型' }
+        const newVolume = currentVolume + pieceDef.volume
+        const extraVolume = 0 // (room.kingTypes[player] === 'clever' && pieceType === 'bomb' && placedPieces.filter(p => p.type === 'bomb').length >= 1) ? 1 : 0
+        const volCap = MIST_VOLUME_CAP + (room.kingTypes[player] === 'clever' ? 1 : 0)
+        
+        if (newVolume > volCap) return { ok: false, error: `超出体积上限！当前${currentVolume}/${volCap}，${pieceDef.name}体积${pieceDef.volume}` }
 
-      // Max count validation
-      const placedCount = placedPieces.filter(p => p.type === pieceType).length
-      if (placedCount >= pieceDef.maxCount) return { ok: false, error: `${pieceDef.name}最多部署${pieceDef.maxCount}个` }
-
-      // Extra bomb for clever king
-      if (pieceType === 'bomb' && placedCount >= 1 && room.kingTypes[player] !== 'clever') {
-        return { ok: false, error: '炸弹最多部署1个' }
-      }
-      if (pieceType === 'bomb' && placedCount >= 2) {
-        return { ok: false, error: '炸弹最多部署2个（机巧之王）' }
+        // Max count validation
+        const placedCount = placedPieces.filter(p => p.type === pieceType).length
+        
+        // Extra bomb for clever king logic
+        let maxCount = pieceDef.maxCount
+        if (room.kingTypes[player] === 'clever' && pieceType === 'bomb') maxCount = 2
+        
+        if (placedCount >= maxCount) return { ok: false, error: `${pieceDef.name}最多部署${maxCount}个` }
       }
 
       const piece = playerPieces.find(p => p.type === pieceType && !p.placed)
@@ -693,7 +698,6 @@ class GameEngine {
       const placedKing = placedPieces.find(p => p.type === 'king')
       if (!placedKing) return { ok: false, error: '请先部署王' }
       const nonKingPlaced = placedPieces.filter(p => p.type !== 'king')
-      if (nonKingPlaced.length < 4) return { ok: false, error: '至少部署4枚士兵棋子' }
 
       // Calculate total volume
       let totalVol = 0
@@ -701,6 +705,7 @@ class GameEngine {
         const def = MIST_PIECE_DEF[p.type]
         if (def) totalVol += def.volume
       }
+      if (totalVol < 4) return { ok: false, error: `至少部署4体积的士兵棋子（当前${totalVol}）` }
       const volCap = MIST_VOLUME_CAP + (room.kingTypes[player] === 'clever' ? 1 : 0)
       if (totalVol > volCap) return { ok: false, error: `超出体积上限 ${totalVol}/${volCap}` }
     } else {
@@ -772,7 +777,7 @@ class GameEngine {
     const type = piece.type
 
     if (type === 'bomb') {
-      // Mist mode clever king bomb can move 1
+      // Mist mode clever king bomb can move 1 (empty cells only, no attack)
       if (room.mode === 'mist' && room.kingTypes[player] === 'clever') {
         return this.getBasicMoves(room, player, col, row, 1, false)
       }
@@ -1164,24 +1169,7 @@ class GameEngine {
     const defenderPlayer = defenderPiece.owner
     const flags = moveFlags || {}
 
-    // ===== Mist mode: Monk stun attack =====
-    if (flags.isMonkStun && defenderType !== 'bomb') {
-      // No damage, both sides stunned for 1 turn. Bomb is excluded (bomb handled above)
-      this.revealPiece(room, attackerPlayer, aCol, aRow)
-      this.revealPiece(room, defenderPlayer, dCol, dRow)
-      room.stunned = room.stunned || {}
-      // Stunned until start of the turn AFTER next turn (so they miss their NEXT turn)
-      room.stunned[this.pieceKey(attackerPlayer, aCol, aRow)] = room.turnNumber + 2
-      room.stunned[this.pieceKey(defenderPlayer, dCol, dRow)] = room.turnNumber + 2
-      return {
-        result: 'monk_stun', attacker: { type: attackerType, owner: attackerPlayer },
-        defender: { type: defenderType, owner: defenderPlayer },
-        log: `行者与${this.pieceName(defenderType, room)}双双眩晕！下回合无法行动`,
-        monkStun: true
-      }
-    }
-
-    // Step 2: Check shield
+    // Step 1: Check shield
     const defPieceObj = this.findPiece(room, defenderPlayer, defenderType, dCol, dRow)
     if (defPieceObj?.shielded) {
       defPieceObj.shielded = false
@@ -1191,7 +1179,7 @@ class GameEngine {
       return { result: 'shield_block', attacker: { type: attackerType, owner: attackerPlayer }, defender: { type: defenderType, owner: defenderPlayer }, log: `${this.pieceName(defenderType, room)}的护盾抵消了攻击` }
     }
 
-    // Step 3: Check bomb
+    // Step 2: Check bomb (defender is bomb = mutual death; attacker is bomb = error)
     if (defenderType === 'bomb') {
       this.revealPiece(room, defenderPlayer, dCol, dRow)
       this.removePiece(room, attackerPlayer, attackerType, aCol, aRow)
@@ -1200,13 +1188,28 @@ class GameEngine {
     }
     if (attackerType === 'bomb') return { result: 'error' }
 
-    // Step 4: Check assassin
+    // Step 3: Check assassin
     if (attackerType === 'assassin') {
       this.revealPiece(room, defenderPlayer, dCol, dRow)
       this.removePiece(room, defenderPlayer, defenderType, dCol, dRow)
       room.stats[attackerPlayer].kills++
       if (defenderType === 'king') return { result: 'king_killed', attacker: { type: attackerType, owner: attackerPlayer }, defender: { type: defenderType, owner: defenderPlayer }, log: '刺客一击必杀！王已陨落！', kingKilled: true }
       return { result: 'assassin_kill', attacker: { type: attackerType, owner: attackerPlayer }, defender: { type: defenderType, owner: defenderPlayer }, log: '刺客必杀！' }
+    }
+
+    // Step 4: Mist mode - Monk stun attack (only vs non-bomb, non-shielded)
+    if (flags.isMonkStun) {
+      this.revealPiece(room, attackerPlayer, aCol, aRow)
+      this.revealPiece(room, defenderPlayer, dCol, dRow)
+      room.stunned = room.stunned || {}
+      room.stunned[this.pieceKey(attackerPlayer, aCol, aRow)] = room.turnNumber + 2
+      room.stunned[this.pieceKey(defenderPlayer, dCol, dRow)] = room.turnNumber + 2
+      return {
+        result: 'monk_stun', attacker: { type: attackerType, owner: attackerPlayer },
+        defender: { type: defenderType, owner: defenderPlayer },
+        log: `行者与${this.pieceName(defenderType, room)}双双眩晕！下回合无法行动`,
+        monkStun: true
+      }
     }
 
     // Step 5: HP-based combat
@@ -1245,7 +1248,6 @@ class GameEngine {
     if (defDied) {
       this.removePiece(room, defenderPlayer, defenderType, dCol, dRow)
       room.stats[attackerPlayer].kills++
-      // In mist mode, dead piece stays hidden (un-reveal)
       if (isMist && defPiece) defPiece.revealed = false
     }
     if (atkDied) {
@@ -1289,11 +1291,13 @@ class GameEngine {
         power += (pieceObj.cursedPower || 0)
         if (pieceObj.enraged) power += 3
         if (pieceObj.blessed) power += 3
-        // Berserker scaling: ATK = base + lost HP
+        // Berserker scaling: ATK = 1 + lost HP + all modifiers
         if (type === 'berserker') {
           const maxHp = def.hp
           const lostHp = maxHp - (pieceObj.hp || maxHp)
-          power = 1 + lostHp
+          power = 1 + lostHp + (pieceObj.cursedPower || 0)
+          if (pieceObj.enraged) power += 3
+          if (pieceObj.blessed) power += 3
         }
         // Valiant king buff
         if (room.valiantBuffed && room.valiantBuffed[player]) {
@@ -1765,7 +1769,8 @@ class GameEngine {
         if (turns > 0 && key.startsWith(curPlayer + ':')) {
           room.poisoned[key] = turns - 1
           // Apply 1 HP damage
-          const [_, colStr, rowStr] = key.split(':')
+          const [, posStr] = key.split(':')
+          const [colStr, rowStr] = posStr.split(',')
           const col = parseInt(colStr)
           const row = parseInt(rowStr)
           if (!isNaN(col) && !isNaN(row)) {
