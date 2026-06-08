@@ -24,3 +24,8 @@ node server.cjs
 
 或者使用 pm2 等守护进程管理工具启动 pm2 start server.cjs。
 用户访问网页时，直接输入后端的监听端口或配合 Nginx 服务器反向代理即可。
+
+
+
+
+sudo systemctl restart scratch-off.service

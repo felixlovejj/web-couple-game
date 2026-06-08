@@ -2,8 +2,8 @@
   "users": {
     "123": {
       "password": "de86a4c2e65968684ca3dac057f6eb0dcea30a169b5c3ce77b9a33d584720e3f",
-      "token": "430f24a4097d7b80a50be561dbb269a5a10583d85980db65ee8d0ed5c0b7a30b",
-      "balance": 39885,
+      "token": "409a1651c96b5dcd640017414c931786dc6e879f1f401565bde49450b2d2c3b8",
+      "balance": 39825,
       "scratchCards": 1,
       "lastSignInDate": "Mon Jun 08 2026",
       "nextGuaranteedPrize": null,
@@ -732,7 +732,7 @@
     "神": {
       "password": "28c7cf9d2ebdcd473e92f40503f61a243276f491e66c124fccaf31554eb81e90",
       "token": "a2854135e52aa2c55e3ee072eb843b44491e1a938ea33be885221f8d9699f60e",
-      "balance": 4970,
+      "balance": 4910,
       "scratchCards": 0,
       "lastSignInDate": null,
       "nextGuaranteedPrize": null,
