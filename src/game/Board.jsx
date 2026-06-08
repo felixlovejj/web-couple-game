@@ -3,7 +3,15 @@ import { PIECE_INFO } from './constants'
 const COL_LABELS = ['A', 'B', 'C', 'D', 'E']
 
 const PIECE_EMOJI = {
-  king: '👑', general: '⚔️', assassin: '🗡️', archer: '🏹', bomb: '💣', pawn: '🐴', scout: '🔭', unknown: '❓'
+  king: '👑', general: '⚔️', assassin: '🗡️', archer: '🏹', bomb: '💣', pawn: '🐴', scout: '🔭', unknown: '❓',
+  // Mist mode pieces
+  horse: '🐴', monk: '🧘', rogue: '🥷', rat: '🐀', berserker: '💢', sage: '🧙', ironguard: '🛡️',
+}
+
+const PIECE_NAME = {
+  king: '王', general: '将', assassin: '刺客', archer: '弓', bomb: '炸弹', pawn: '兵', scout: '侦察兵', unknown: '?',
+  // Mist mode
+  horse: '马', monk: '行者', rogue: '侠客', rat: '老鼠', berserker: '狂战', sage: '国师', ironguard: '铁卫',
 }
 
 export default function Board({ state, selectedPiece, legalMoves, onCellClick, myUsername, highlightedCells }) {

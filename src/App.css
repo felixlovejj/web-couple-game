@@ -1345,6 +1345,18 @@ html, body, #root {
 .dc-result-hp { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.5); margin-bottom: 4px; }
 .dc-result-log { font-size: 14px; color: rgba(255,255,255,0.5); }
 
+/* Defender fade-out animation */
+.dc-defender-fade {
+  animation: defenderFade 0.8s ease-out forwards;
+}
+@keyframes defenderFade {
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.9); }
+  100% { opacity: 0; transform: scale(0.6); }
+}
+
+.dc-result { text-align: center; animation: slideUp 0.4s ease; }
+
 /* HP bar */
 .dc-hp-hearts { display: flex; gap: 1px; margin-top: 1px; align-items: center; justify-content: center; }
 .dc-heart { font-size: 9px; line-height: 1; text-shadow: 0 0 2px rgba(0,0,0,0.5); }

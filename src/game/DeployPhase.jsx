@@ -17,7 +17,7 @@ export default function DeployPhase({ state, selectedDeployPiece, onSelectPiece,
   const pieceDefs = mistState?.deployPieceDefs || {}
   const kingType = mistState?.myKingType
 
-  // Mist mode: count placed pieces by type
+  // Mist mode: count placed pieces by type (including king)
   const getPlacedCount = (type) => {
     if (!isMist) return 0
     let count = 0
@@ -28,6 +28,19 @@ export default function DeployPhase({ state, selectedDeployPiece, onSelectPiece,
       }
     }
     return count
+  }
+
+  // Mist mode: get all placeable types including king
+  const getMistTrayTypes = () => {
+    const placedTypes = new Set()
+    for (let r of deployRows) {
+      for (let c = 0; c < 5; c++) {
+        const cell = board[c]?.[r]
+        if (cell && cell.owner === myUsername) placedTypes.add(cell.type)
+      }
+    }
+    // Available types = all mist types minus already placed
+    return Object.keys(pieceDefs).filter(t => !placedTypes.has(t))
   }
 
   const handleCellClick = (col, row) => {
@@ -112,35 +125,30 @@ export default function DeployPhase({ state, selectedDeployPiece, onSelectPiece,
           </div>
           <div className='dc-tray-pieces'>
             {trayPieces.map((type, i) => {
-              if (isMist && type === 'king') return null // King already placed
               const def = pieceDefs[type]
               const placedCount = getPlacedCount(type)
               const maxCount = def?.maxCount || 1
               const volume = def?.volume || 0
-              const canPlaceMore = placedCount < maxCount && (!def || volumeUsed + volume <= volumeCap)
-
-              const isUsed = !isMist
-                ? !deployPiecesLeft.includes(type)
-                : (placedCount >= maxCount)
+              const isKing = type === 'king'
+              // In mist mode, king is placeable if not yet placed
+              const isPlaced = isKing ? placedCount > 0 : placedCount >= maxCount
+              const wouldExceedVolume = isMist && !isKing && (volumeUsed + volume > volumeCap)
+              const canPlace = !isPlaced && !wouldExceedVolume
 
               return (
                 <button
                   key={`${type}-${i}`}
-                  className={`dc-tray-piece ${selectedDeployPiece === type ? 'dc-selected' : ''} ${isUsed && isMist ? 'dc-used' : ''}`}
-                  style={{ cursor: canPlaceMore || (!isMist && deployPiecesLeft.includes(type)) ? 'pointer' : 'not-allowed', opacity: isUsed && isMist ? 0.3 : 1 }}
+                  className={`dc-tray-piece ${selectedDeployPiece === type ? 'dc-selected' : ''} ${!canPlace && !isMist ? 'dc-used' : ''} ${!canPlace && isMist ? 'dc-used' : ''}`}
+                  style={{ cursor: canPlace ? 'pointer' : 'not-allowed', opacity: canPlace ? 1 : 0.3 }}
                   onClick={() => {
-                    if (isMist) {
-                      if (canPlaceMore) onSelectPiece(type)
-                    } else if (deployPiecesLeft.includes(type)) {
-                      onSelectPiece(type)
-                    }
+                    if (canPlace) onSelectPiece(type)
                   }}
                 >
                   <span className='dc-tray-emoji'>{PIECE_EMOJI[type] || '?'}</span>
                   <span className='dc-tray-name'>{PIECE_NAME[type] || type}</span>
                   {isMist && def && (
                     <span style={{ fontSize: 8, color: 'rgba(255,255,255,0.4)' }}>
-                      体{volume} | {placedCount}/{maxCount}
+                      {isKing ? '👑王' : `体${volume} | ${placedCount}/${maxCount}`}
                     </span>
                   )}
                   {!isMist && (type === 'pawn' || type === 'scout') && (

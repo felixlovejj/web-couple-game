@@ -1165,17 +1165,18 @@ class GameEngine {
     const flags = moveFlags || {}
 
     // ===== Mist mode: Monk stun attack =====
-    if (flags.isMonkStun) {
-      // No damage, both sides stunned for 1 turn
+    if (flags.isMonkStun && defenderType !== 'bomb') {
+      // No damage, both sides stunned for 1 turn. Bomb is excluded (bomb handled above)
       this.revealPiece(room, attackerPlayer, aCol, aRow)
       this.revealPiece(room, defenderPlayer, dCol, dRow)
       room.stunned = room.stunned || {}
-      room.stunned[this.pieceKey(attackerPlayer, aCol, aRow)] = room.turnNumber + 1
-      room.stunned[this.pieceKey(defenderPlayer, dCol, dRow)] = room.turnNumber + 1
+      // Stunned until start of the turn AFTER next turn (so they miss their NEXT turn)
+      room.stunned[this.pieceKey(attackerPlayer, aCol, aRow)] = room.turnNumber + 2
+      room.stunned[this.pieceKey(defenderPlayer, dCol, dRow)] = room.turnNumber + 2
       return {
         result: 'monk_stun', attacker: { type: attackerType, owner: attackerPlayer },
         defender: { type: defenderType, owner: defenderPlayer },
-        log: `行者(${this.pieceName(attackerType, room)})与${this.pieceName(defenderType, room)}双双眩晕！下回合无法行动`,
+        log: `行者与${this.pieceName(defenderType, room)}双双眩晕！下回合无法行动`,
         monkStun: true
       }
     }
@@ -2130,7 +2131,9 @@ class GameEngine {
       opponentHandCount: opponent ? (room.hands[opponent]?.length || 0) : 0,
       deployed: room.deployed[player] || false,
       opponentDeployed: opponent ? room.deployed[opponent] || false : false,
-      deployPiecesLeft: (room.pieces[player] || []).filter(p => !p.placed).map(p => p.type),
+      deployPiecesLeft: (room.pieces[player] || [])
+        .filter(p => !p.placed)
+        .map(p => p.type),
       treasures,
       cracks,
       waterRows,
