@@ -3,15 +3,15 @@
     "123": {
       "password": "de86a4c2e65968684ca3dac057f6eb0dcea30a169b5c3ce77b9a33d584720e3f",
       "token": "409a1651c96b5dcd640017414c931786dc6e879f1f401565bde49450b2d2c3b8",
-      "balance": 39825,
+      "balance": 39730,
       "scratchCards": 1,
-      "lastSignInDate": "Mon Jun 08 2026",
+      "lastSignInDate": "Tue Aug 25 2026",
       "nextGuaranteedPrize": null,
       "guaranteedPrizes": {},
       "battleStats": {
-        "wins": 42,
-        "losses": 30,
-        "totalGoldEarned": 2520
+        "wins": 47,
+        "losses": 39,
+        "totalGoldEarned": 2820
       },
       "inventory": {
         "freezeShield": 3,
@@ -181,9 +181,9 @@
     "jiajiazuikeai": {
       "password": "52bdc2327516b11c0e569bc6569476604e62feaec3b72205159590b0b527c5ab",
       "token": "a84915511a24ecef6c81a4861822752501d934f4189a4de62c9b375e4551573f",
-      "balance": 200,
+      "balance": 480,
       "scratchCards": 0,
-      "lastSignInDate": "Mon Jun 08 2026",
+      "lastSignInDate": "Mon Aug 31 2026",
       "nextGuaranteedPrize": null,
       "guaranteedPrizes": {},
       "inventory": {
@@ -192,9 +192,9 @@
         "doubleBet": 0
       },
       "battleStats": {
-        "wins": 22,
-        "losses": 14,
-        "totalGoldEarned": 1320
+        "wins": 31,
+        "losses": 21,
+        "totalGoldEarned": 1860
       }
     },
     "testuser": {
@@ -732,7 +732,7 @@
     "神": {
       "password": "28c7cf9d2ebdcd473e92f40503f61a243276f491e66c124fccaf31554eb81e90",
       "token": "a2854135e52aa2c55e3ee072eb843b44491e1a938ea33be885221f8d9699f60e",
-      "balance": 4910,
+      "balance": 5000,
       "scratchCards": 0,
       "lastSignInDate": null,
       "nextGuaranteedPrize": null,
@@ -743,9 +743,28 @@
         "doubleBet": 0
       },
       "battleStats": {
-        "wins": 1,
+        "wins": 4,
         "losses": 1,
-        "totalGoldEarned": 60
+        "totalGoldEarned": 240
+      }
+    },
+    "东湘梨": {
+      "password": "760f92b37fa8305ac3be5ef3828a6cd5d19f994e2ae664846a77b8bb859534c1",
+      "token": "bc8f01a5002995a03bb00e6b28901b7d982d75dc0727159fa4234b2be304cd31",
+      "balance": 85,
+      "scratchCards": 5,
+      "lastSignInDate": "Sun Jun 14 2026",
+      "nextGuaranteedPrize": null,
+      "guaranteedPrizes": {},
+      "inventory": {
+        "freezeShield": 0,
+        "reflectArmor": 0,
+        "doubleBet": 0
+      },
+      "battleStats": {
+        "wins": 0,
+        "losses": 1,
+        "totalGoldEarned": 0
       }
     }
   }
